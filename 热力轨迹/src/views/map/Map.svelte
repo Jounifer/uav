@@ -27,6 +27,7 @@
   import { gisConfig } from './gisconfig'
 
   import ChannelLayer from './channellayer'
+  import mapSource from './mapSource'
 
   let unsubscribe = null
   let map = null
@@ -35,6 +36,7 @@
   let currentZoom = 0
   let currentFeature = null
   let channelType = 'RSSI'
+  let offlineBaseLayer = null // 离线地图图层
 
   const channelLayer = new ChannelLayer()
 
@@ -63,7 +65,8 @@
   }
   function init(params) {
 
-    const { min, bounds, max, wms, center, level } = params.gis
+    // mapOnlineStatus:地图在线服务开关 mapOnlineStyle:地图在线地图样式Add commentMore actions
+    const { min, bounds, max, wms, center, level, mapOnlineStatus, mapOnlineStyle } = params.gis
     const posCenter = center ? center: getCenter(bounds)
     if (!map) {
 
@@ -81,7 +84,7 @@
         const maxResolution = getWidth(extent) / blockSize;
         const { matrixIds, resolutions } = fromatrm(code, maxResolution, maxZoom)
     
-        baseLayer = new Tile({
+        offlineBaseLayer = new Tile({
           source: new WMTS({
             ...wmtsOption({wms, layer: params.gis.layer}),
             projection,
@@ -94,6 +97,7 @@
             })
           })
         })
+        baseLayer = !mapOnlineStatus ? offlineBaseLayer : mapSource[mapOnlineStyle]
       }
 
       map = new Map({
@@ -244,10 +248,12 @@
         wms: 'http://172.16.51.89:9099/geoserver/gwc/service/wmts',
         gisCoordinate: 'GCJ02',
         layer: 'maps:view',
+        mapOnlineStatus: false,
+        mapOnlineStyle: 'streetsV11',
       },
       proj: {
         code: 'EPSG:4326'
-      }
+      },
     }
     setTimeout(() => {
       if (!map) {
@@ -298,7 +304,7 @@
       // 获取地图初始配置
       if (e.data.message === 'initMap') {
 
-        const { wms, gisCoordinate, center, bounds, min, max, layer } = e.data.config
+        const { wms, gisCoordinate, center, bounds, min, max, layer, mapOnlineStatus = false, mapOnlineStyle } = e.data.config
         if (wms) {
           gis.gis.wms = wms
         }
@@ -320,10 +326,23 @@
         if (layer) {
           gis.gis.layer = layer
         }
+        if (mapOnlineStyle) {
+          gis.gis.mapOnlineStyle = mapOnlineStyle
+        }
+        gis.gis.mapOnlineStatus = mapOnlineStatus
         init(gis)
 
       }
 
+      // 更新地图图层
+      if (e.data.message === 'updateMapLayer') {
+        map.getLayers().forEach(layer => {
+          if (layer.constructor.name === 'TileLayer') {
+            map.removeLayer(layer)
+            map.addLayer(!e.data.data.mapOnlineStatus ? offlineBaseLayer : mapSource[e.data.data.mapOnlineStyle])
+          }
+        })
+      }
     })
 
     // 获取gis配置缓存
