@@ -1,0 +1,80 @@
+.nf-checkbox {
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  font-size: 0;
+
+  input[type="checkbox"].nf-checkbox-box {
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: solid 1px #dcdcdc;
+    background-color: #ffffff;
+    margin-bottom: -1px;
+    border-radius: 3px;
+    transition: border-color 0.25s cubic-bezier(0.65, 0.13, 0.22, 0.88),
+      background-color 0.25s cubic-bezier(0.65, 0.13, 0.22, 0.88);
+
+    &:hover {
+      border: solid 1px rgb(34, 209, 113);
+    }
+
+    &::after {
+      box-sizing: border-box;
+      content: "";
+      border: 1px solid #ffffff;
+      border-left: 0;
+      border-top: 0;
+      height: 7px;
+      left: 5px;
+      position: absolute;
+      top: 1px;
+      transform: rotate(45deg) scaleY(0);
+      width: 3px;
+      transition: transform 0.15s ease-in 0.05s;
+      transform-origin: center;
+    }
+
+    &:checked {
+      background-color: rgb(17, 207, 103);
+
+      &::after {
+        transform: rotate(45deg) scaleY(1);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      border: solid 1px #d9d9d9;
+      background-color: #f6f6f6;
+    }
+  }
+
+  &-text {
+    font-size: 14px;
+    line-height: 19px;
+    padding-left: 10px;
+  }
+
+  input[type="checkbox"].nf-checkbox-box:checked + &-text {
+    color: rgb(17, 207, 103);
+  }
+}
+
+label[disabled="true"].nf-checkbox {
+  cursor: not-allowed;
+
+  span.nf-checkbox-text {
+    color: #c0c0c0;
+  }
+}
+
+.nf-checkbox+.nf-checkbox{
+  margin-left: 8px;
+}

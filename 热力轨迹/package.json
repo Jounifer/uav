@@ -1,0 +1,40 @@
+{
+  "name": "uavcvfeqt",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.3",
+    "eslint": "^8.37.0",
+    "eslint-config-nufront": "^1.0.9",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "lint-staged": "^13.2.0",
+    "sass": "^1.60.0",
+    "svelte-preprocess": "^5.0.3",
+    "vite": "^4.2.0",
+    "vite-plugin-html": "^3.2.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,svelte}": [
+      "npx eslint src --fix"
+    ]
+  },
+  "dependencies": {
+    "flyio": "^0.6.14",
+    "moment": "^2.29.4",
+    "normalize.css": "^8.0.1",
+    "ol": "^7.3.0",
+    "svelte": "^3.55.1",
+    "store": "^2.0.12"
+  }
+}

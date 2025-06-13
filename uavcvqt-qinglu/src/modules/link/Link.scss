@@ -1,0 +1,173 @@
+.nf-link {
+  $color: #666666;
+  $hover: #424242;
+  $disable: #b6b6b6;
+  font-size: 14px;
+  color: $color;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &.is-underline {
+    border-bottom: solid 1px $color;
+    &:hover {
+      border-bottom: solid 1px $hover;
+    }
+  }
+
+  &.is-disabled {
+    color: $disable;
+    cursor: not-allowed;
+    border-bottom: solid 1px $disable;
+    &:hover {
+      border-bottom: solid 1px $disable;
+    }
+  }
+
+  &.primary {
+    $color: #43a0fc;
+    $hover: #3e90e7;
+    $disable: #9ecaf5;
+
+    color: $color;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &.is-underline {
+      border-bottom: solid 1px $color;
+
+      &:hover {
+        border-bottom: solid 1px $hover;
+      }
+    }
+
+    &.is-disabled {
+      color: $disable;
+      cursor: not-allowed;
+      border-bottom: solid 1px $disable;
+      &:hover {
+        border-bottom: solid 1px $disable;
+      }
+    }
+  }
+
+  &.success {
+    $color: #64bd38;
+    $hover: #5aa833;
+    $disable: #add69a;
+
+    color: $color;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &.is-underline {
+      border-bottom: solid 1px $color;
+
+      &:hover {
+        border-bottom: solid 1px $hover;
+      }
+    }
+
+    &.is-disabled {
+      color: $disable;
+      cursor: not-allowed;
+      border-bottom: solid 1px $disable;
+      &:hover {
+        border-bottom: solid 1px $disable;
+      }
+    }
+  }
+
+  &.info {
+    $color: #909299;
+    $hover: #838486;
+    $disable: #c7c7c9;
+
+    color: $color;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &.is-underline {
+      border-bottom: solid 1px $color;
+
+      &:hover {
+        border-bottom: solid 1px $hover;
+      }
+    }
+
+    &.is-disabled {
+      color: $disable;
+      cursor: not-allowed;
+      border-bottom: solid 1px $disable;
+      &:hover {
+        border-bottom: solid 1px $disable;
+      }
+    }
+  }
+
+  &.warning {
+    $color: #e0a040;
+    $hover: #c98f38;
+    $disable: #ebcc9d;
+
+    color: $color;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &.is-underline {
+      border-bottom: solid 1px $color;
+
+      &:hover {
+        border-bottom: solid 1px $hover;
+      }
+    }
+
+    &.is-disabled {
+      color: $disable;
+      cursor: not-allowed;
+      border-bottom: solid 1px $disable;
+      &:hover {
+        border-bottom: solid 1px $disable;
+      }
+    }
+  }
+
+  &.danger {
+    $color: #f57171;
+    $hover: #d86363;
+    $disable: #f7b9b9;
+
+    color: $color;
+
+    &:hover {
+      color: $hover;
+    }
+
+    &.is-underline {
+      border-bottom: solid 1px $color;
+
+      &:hover {
+        border-bottom: solid 1px $hover;
+      }
+    }
+
+    &.is-disabled {
+      color: $disable;
+      cursor: not-allowed;
+      border-bottom: solid 1px $disable;
+      &:hover {
+        border-bottom: solid 1px $disable;
+      }
+    }
+  }
+}

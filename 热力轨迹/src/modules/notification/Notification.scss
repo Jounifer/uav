@@ -1,0 +1,55 @@
+#nf-notification-container {
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  z-index: 992;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .nf-notification {
+    padding: 8px 16px;
+    border-radius: 4px;
+    min-width: 200px;
+    max-width: 360px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    margin-top: 20px;
+
+    &-header {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 0;
+      position: relative;
+
+      .nf-notification-exit {
+        position: absolute;
+        right: 0px;
+        top: 6px;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        font-size: 20px;
+        color: #363636;
+
+        &::before {
+          content: "×";
+        }
+
+        &:hover {
+          color: #66acf7;
+        }
+
+        &:active {
+          color: #3e91e9;
+        }
+      }
+    }
+
+    &-content {
+      padding: 8px 0;
+    }
+  }
+}

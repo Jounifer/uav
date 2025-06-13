@@ -1,0 +1,40 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2022": true,
+		"mocha": true
+  },
+  "extends": ["eslint-config-nufront"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "globals": {
+    "QWebChannel": "readonly",
+    "qt": "readonly",
+    "Owt": "readonly"
+  },
+  "rules": {
+    "max-len": ["error", {"code": 1600}],
+    "semi": ["error", "never"],
+    "no-bitwise": "off",
+    "quotes": ["error", "single"]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [ ["@", "./src"] ],
+        "extensions": [
+          ".scss",
+          ".ts",
+          ".js",
+          ".jsx",
+          ".json",
+          ".svelte"
+        ]
+      }
+    }
+  }
+}

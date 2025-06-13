@@ -1,0 +1,46 @@
+#nf-message-container {
+  position: fixed;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
+  z-index: 992;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  .nf-message {
+    margin-top: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &.primary {
+      border-color: #43a0fc;
+      color: #ffffff;
+      background-color: #42a1ff;
+    }
+
+    &.success {
+      border-color: #64bd38;
+      color: #ffffff;
+      background-color: #6ac93b;
+    }
+
+    &.info {
+      border-color: #909299;
+      color: #ffffff;
+      background-color: #999999;
+    }
+
+    &.warning {
+      border-color: #e0a040;
+      color: #ffffff;
+      background-color: #e6a544;
+    }
+
+    &.danger {
+      border-color: #f57171;
+      color: #ffffff;
+      background-color: #f37474;
+    }
+  }
+}

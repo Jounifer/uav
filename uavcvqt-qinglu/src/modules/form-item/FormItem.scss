@@ -1,0 +1,54 @@
+.nf-form-item {
+  flex-direction: row;
+  align-items: center;
+
+  &.is-block {
+    display: flex;
+  }
+
+  &.is-inline {
+    display: inline-flex;
+  }
+
+  &-label {
+    padding: 0 12px;
+
+    &.is-required {
+      &::before {
+        content: "*";
+        color: #ff0000;
+        padding-right: 4px;
+      }
+    }
+  }
+
+  &.is-align-right {
+    text-align: right;
+  }
+
+  &.is-align-lelft {
+    text-align: left;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &-content {
+    position: relative;
+    flex: 1;
+    text-align: left;
+  }
+
+  &-tip {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    bottom: -16px;
+    font-size: 12px;
+    color: #ff0000;
+  }
+}

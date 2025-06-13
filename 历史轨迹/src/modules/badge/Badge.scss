@@ -1,0 +1,38 @@
+.nf-badge {
+  display: inline-block;
+  position: relative;
+
+  &-sub {
+    padding: 0px 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    border-radius: 9px;
+    position: absolute;
+    display: inline-block;
+    height: 18px;
+    top: 0px;
+    right: 12px;
+    transform: translate(100%, -50%);
+    color: #ffffff;
+
+    &.primary {
+      background-color: #42a1ff;
+    }
+
+    &.success {
+      background-color: #6ac93b;
+    }
+
+    &.info {
+      background-color: #999999;
+    }
+
+    &.warning {
+      background-color: #e6a544;
+    }
+
+    &.danger {
+      background-color: #f37474;
+    }
+  }
+}
