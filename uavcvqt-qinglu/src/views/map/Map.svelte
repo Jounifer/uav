@@ -1263,7 +1263,7 @@
         gisCoordinate: 'GCJ02',
         layer: 'maps:view',
         mapOnlineStatus: false,
-        mapOnlineStyle: 'streetsV11',
+        mapOnlineStyle: 'darkV10',
       },
       proj: {
         code: 'EPSG:4326'

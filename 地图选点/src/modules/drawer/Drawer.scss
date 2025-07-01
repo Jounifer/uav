@@ -1,0 +1,56 @@
+.nf-drawer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    overflow: hidden;
+    display: flex;
+
+    &.is-modal {
+        background-color: rgba(0,0,0,.75);
+    }
+
+    &-wrapper {
+        position: relative;
+    }
+    
+    &.direct-left {
+        flex-direction: row;
+
+        .nf-drawer-wrapper {
+            width: 36%;
+            height: 100%;
+            background-color: #ffffff;
+        }
+    }
+
+    &.direct-right {
+        flex-direction: row-reverse;
+
+        .nf-drawer-wrapper {
+            width: 36%;
+            height: 100%;
+            background-color: #ffffff;
+        }
+    }
+
+    &.direct-top {
+        flex-direction: column;
+
+        .nf-drawer-wrapper {
+            width: 100%;
+            height: 36%;
+            background-color: #ffffff;
+        }
+    }
+
+    &.direct-bottom {
+        flex-direction: column-reverse;
+
+        .nf-drawer-wrapper {
+            width: 100%;
+            height: 36%;
+            background-color: #ffffff;
+        }
+    }
+}

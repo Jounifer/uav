@@ -1,0 +1,126 @@
+.nf-popover {
+  display: inline-block;
+  position: relative;
+
+  &-header {
+    font-size: 14px;
+    color: #323232;
+
+    &:not(:empty) {
+      padding-bottom: 16px;
+    }
+  }
+
+  &-content {
+    position: fixed;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    text-align: left;
+    word-wrap: break-word;
+    border-radius: 4px;
+    z-index: 992;
+    font-size: 12px;
+    color: #363636;
+    box-shadow: 0px 0px 8px rgba(48, 49, 50, 0.15);
+
+    &.left {
+      &::before {
+        content: "";
+        border-left: solid 6px #ffffff;
+        border-top: solid 6px transparent;
+        border-bottom: solid 6px transparent;
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.top-left {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-top: solid 6px #ffffff;
+        position: absolute;
+        right: 12px;
+        top: 100%;
+      }
+    }
+
+    &.top-right {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-top: solid 6px #ffffff;
+        position: absolute;
+        left: 12px;
+        top: 100%;
+      }
+    }
+
+    &.right {
+      &::before {
+        content: "";
+        border-right: solid 6px #ffffff;
+        border-top: solid 6px transparent;
+        border-bottom: solid 6px transparent;
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.top {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-top: solid 6px #ffffff;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &.bottom {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-bottom: solid 6px #ffffff;
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &.bottom-left {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-bottom: solid 6px #ffffff;
+        position: absolute;
+        right: 12px;
+        bottom: 100%;
+      }
+    }
+
+    &.bottom-right {
+      &::before {
+        content: "";
+        border-right: solid 6px transparent;
+        border-left: solid 6px transparent;
+        border-bottom: solid 6px #ffffff;
+        position: absolute;
+        left: 12px;
+        bottom: 100%;
+      }
+    }
+  }
+}
