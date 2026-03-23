@@ -20,12 +20,7 @@ export default function autoBeacon(vector, square, map, style, data = [], alarmS
     data.forEach((item) => {
 
       const icBeacon = beacon.getFeatureById(item.id)
-      if (icBeacon) {
-
-        style = icBeacon.get('style')
-
-      }
-      item.style = style
+      item.style = icBeacon ? icBeacon.get('style') : style
 
       addOrSetBeacon(item, {
         type: featuretype.Beacon,

@@ -23,12 +23,7 @@ export default function autoSector(vector, square, map, style, data = [], alarmS
     data.forEach((item) => {
 
       const plane = relay.getFeatureById(item.id)
-      if (plane) {
-
-        style = plane.get('style')
-
-      }
-      item.style = style
+      item.style = plane ? plane.get('style') : style
 
       addOrSetSector(item, sector)
 

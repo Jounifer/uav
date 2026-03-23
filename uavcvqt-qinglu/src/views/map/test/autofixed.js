@@ -29,12 +29,7 @@ export default function autoFixed(vector, square, map, style, data = [], alarmSt
     data.forEach((item) => {
 
       const plane = fixed.getFeatureById(item.id)
-      if (plane) {
-
-        style = plane.get('style')
-
-      }
-      item.style = style
+      item.style = plane ? plane.get('style') : style
 
       addOrSetSector(item, sector)
 

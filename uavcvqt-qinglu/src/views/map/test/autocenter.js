@@ -21,12 +21,8 @@ export default function autoCenter(vector, square, map, style, data = []) {
     data.forEach((item) => {
 
       const station = center.getFeatureById(item.id)
-      if (station) {
+      item.style = station ? station.get('style') : style
 
-        style = station.get('style')
-
-      }
-      item.style = style
 
       addOrSetSector(item, sector)
 

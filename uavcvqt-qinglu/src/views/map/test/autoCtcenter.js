@@ -20,12 +20,7 @@ export default function autoCtcenter(vector, square, map, style, data = []) {
     data.forEach((item) => {
 
       const station = ctCenter.getFeatureById(item.id)
-      if (station) {
-
-        style = station.get('style')
-
-      }
-      item.style = style
+      item.style = station ? station.get('style') : style
 
       addOrSetSector(item, sector)
 
